@@ -197,5 +197,17 @@ html, body {
 }
 
 
+.photo-gallery {
+  display: flex;
+  flex-direction: column; /* Stack vertically; change to row for horizontal */
+  gap: 10px; /* Space between photos */
+}
+.photo-gallery img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: float 3s ease-in-out infinite;
+  }
 
 
