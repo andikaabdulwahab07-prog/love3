@@ -106,11 +106,14 @@ html, body {
 }
 
 .body_left img {
-  width: 100px;
-  margin-bottom: 12px;
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   animation: float 3s ease-in-out infinite;
+  transition: opacity 1s ease-in-out; /* Smooth fade between photos */
 }
-
 .body_left video {
   width: 100%;
   max-width: 300px;
@@ -192,6 +195,7 @@ html, body {
     max-width: 220px;
   }
 }
+
 
 
 
