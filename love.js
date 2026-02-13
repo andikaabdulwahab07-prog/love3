@@ -19,30 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       isPlaying = false;
     }
   });
-startMusic();
 
-  // Toggle button for manual control
-  musicToggle.addEventListener('click', function() {
-    if (musicPlaying) {
-      bgMusic.pause();
-      musicPlaying = false;
-      musicToggle.textContent = '♪';
-    } else {
-      startMusic();
-    }
-  });
-// Rotating Photos Sequentially
-const photos = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg']; // Add more if needed, e.g., 'photo4.jpg'
-const rotatingPhoto = document.getElementById('rotating-photo');
-let currentPhotoIndex = 0;
-
-function rotatePhoto() {
-  currentPhotoIndex = (currentPhotoIndex + 1) % photos.length; // Moves to next in sequence
-  rotatingPhoto.src = photos[currentPhotoIndex];
-}
-
-setInterval(rotatePhoto, 4000); // Changes every 4 seconds
-  
   function createParticle() {
     const particle = document.createElement("div");
     particle.className = "particle";
@@ -68,5 +45,3 @@ setInterval(rotatePhoto, 4000); // Changes every 4 seconds
   setTimeout(typeWriter, 800);
 
 });
-
-
