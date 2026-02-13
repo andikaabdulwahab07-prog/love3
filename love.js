@@ -1,139 +1,90 @@
-const blk_pitn = { 
-        block1: [[0, 1], [0, 0], [-1, 0], [-1, -1]],
-        block2: [[0, 1], [0, 0], [-1, 0], [0, -1]],
-        block3: [[-1, 1], [0, 0], [-1, 0], [-1, -1]],
-        block4: [[0, 1], [0, 0], [-1, 0], [-1, -1]], /* 1 */
-        block5: [[-1, 1], [0, 0], [-1, 0], [0, -1]],
-        block6: [[0, -1], [0, 0], [-1, 0], [1, -1]],
-        block7: [[-1, -1], [0, 0], [-1, 0], [1, 0]],
-        block8: [[-1, 1], [0, 0], [-1, 0], [-1, -1]], /* 3 */
-        block9: [[0, -1], [0, 0], [-1, 0], [1, 0]],
-        block10: [[-1, 1], [0, 0], [-1, 0], [1, 0]],
-        block11: [[2, 0], [0, 0], [-1, 0], [1, 0]], /* — */
-        block12: [[0, 1], [0, 0], [-1, 0], [0, -1]], /* 2 */
-        block13: [[0, 1], [0, 0], [-1, 0], [-1, -1]], /* 1 */
-        block14: [[1, 1], [0, 0], [-1, 0], [1, 0]],
-        block15: [[1, -1], [0, 0], [-1, 0], [1, 0]],
-        block16: [[-1, -1], [0, 0], [-1, 0], [1, 0]], /* 7 */
-        block17: [[0, 1], [0, 0], [-1, 0], [0, -1]], /* 2 */
-        block18: [[0, 1], [0, 0], [-1, 0], [-1, -1]], /* 1 */
-        block19: [[0, -1], [0, 0], [-1, 0], [1, 0]], /* 9 */
-        block20: [[1, -1], [0, 0], [-1, 0], [1, 0]],
-        block21: [[0, 1], [0, 0], [-1, 0], [-1, -1]], /* 1 */
-        block22: [[1, 1], [0, 0], [-1, 0], [1, 0]], /* 14 */
-        block23: [[0, 2], [0, 0], [0, -1], [0, 1]]      /* | */
-    },
-    offset_pitn = {
-        block1: [5, 3],
-        block2: [5, 1],
-        block3: [3, 4],
-        block4: [3, 2],
-        block5: [3, -1],
-        block6: [2, 5],
-        block7: [2, 1],
-        block8: [1, -1],
-        block9: [1, -3],
-        block10: [1, 2],
-        block11: [0, 3],
-        block12: [0, 0], 
-        block13: [-1, -4],
-        block14: [0, -2],
-        block15: [-2, 4],
-        block16: [-2, 2],
-        block17: [-2, 0],
-        block18: [-3, -2],
-        block19: [-4, 0],
-        block20: [-3, 5],
-        block21: [-5, 3],
-        block22: [-4, 1],
-        block23: [-6, 1]    
-    };
+<script>
 
-let blocks = document.getElementsByClassName("block"),
-    block = blocks[0],
-    love = document.getElementsByClassName("love")[0],
-    timer = null,
-    index = 0,  
-    clone_block;    
-block.style.top = "50%";
-block.style.left = "50%";
-block.style.margin = "-20px 0 0 -20px";
+  document.addEventListener('DOMContentLoaded', function() {
+    const block = document.querySelector('.block');
+    const particlesContainer = document.getElementById('particles');
+    const musicToggle = document.getElementById('music-toggle');
+    const volumeControl = document.getElementById('volume-control');
+    const volumeSlider = document.getElementById('volume-slider');
+    const bgMusic = document.getElementById('bg-music');
+    const loveText = document.getElementById('love-text');
 
-const block_left = parseFloat(window.getComputedStyle(block, null).left.slice(0, -2)),
-    block_top = parseFloat(window.getComputedStyle(block, null).top.slice(0, -2));  
-
-function Next() {
-  if (++index >= 24) {
-    clearInterval(timer);
-
-    const text = document.getElementById("love-text");
-
-    // force reflow to guarantee animation
-    text.offsetHeight;
-    text.classList.add("show");
-
-    Rise();
-    return;
-}
-
-
-
-    block.style.visibility = "visible"; 
-    block.style.left = block_left + 40 * offset_pitn["block" + index][0] + "px";
-    block.style.top = block_top - 40 * offset_pitn["block" + index][1] + "px";
-    for (let i = 0; i < block.children.length; i++) {
-        
-        block.children[i].style.left = blk_pitn["block" + index][i][0] * -40 + "px";
-        
-        block.children[i].style.top = blk_pitn["block" + index][i][1] * -40 + "px";
+    
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particlesContainer.appendChild(particle);
+      setTimeout(() => particle.remove(), 10000); 
     }
+    setInterval(createParticle, 2000); 
 
     
-    clone_block = block.cloneNode(true);
-    love.appendChild(clone_block);
+    block.addEventListener('click', function(e) {
+      if (e.target.tagName === 'DIV') {
+        const newHeart = document.createElement('div');
+        newHeart.style.width = '40px';
+        newHeart.style.height = '40px';
+        newHeart.style.position = 'absolute';
+        newHeart.style.background = 'url("heart.png") no-repeat';
+        newHeart.style.backgroundSize = 'contain';
+        newHeart.style.animation = 'pulse 2s infinite';
+        newHeart.style.cursor = 'pointer';
+        newHeart.style.left = Math.random() * 480 + 'px'; 
+        newHeart.style.top = Math.random() * 400 + 'px';
+        block.appendChild(newHeart);
+      }
+    });
 
-    if (love.children.length >= 24) {
-        blocks[blocks.length - 1].children[2].style.display = "none"; 
-        block.style.display = "none";   
+    let musicPlaying = false;
+    musicToggle.addEventListener('click', function() {
+      if (musicPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = '♪';
+        volumeControl.style.display = 'none';
+      } else {
+        bgMusic.play().catch(e => console.log('Audio play failed:', e)); 
+        musicToggle.textContent = '🔊';
+        volumeControl.style.display = 'block';
+      }
+      musicPlaying = !musicPlaying;
+    });
+
+    
+    volumeSlider.addEventListener('input', function() {
+      bgMusic.volume = this.value;
+    });
+
+    
+    const fullText = loveText.textContent;
+    loveText.textContent = ''; 
+    let index = 0;
+    function typeWriter() {
+      if (index < fullText.length) {
+        loveText.textContent += fullText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 50); 
+      }
     }
-}
-
-function Rise() {
-   
-    console.log("lift of started");
-    let timer2 = null,
-        distance = 0;
     
-    const target = 120, 
-        speed = 1;
+    setTimeout(typeWriter, 1000);
+
+
+    loveText.addEventListener('click', function() {
+      if (!loveText.classList.contains('expanded')) {
+        loveText.innerHTML += '<br><br><em>And every beat of my heart whispers your name...</em>'; 
+        loveText.classList.add('expanded');
+        loveText.style.animation = 'none'; 
+      }
+    });
+
     
-
-    let love_top = parseFloat(window.getComputedStyle(love, null).top.slice(0, -2));  
-
-
-    timer2 = setInterval(() => {
-        distance += speed;
-       
-        if (distance >= target) {
-            clearInterval(timer2);
-
-            console.log("lift off completed");
-
-        }
-
-        love.style.top = (love_top - distance) + "px";
-
-    }, 22);
-
-}
-
-window.onload = function () {
-    setTimeout(() => {
-
-        timer = setInterval(() => {
-            Next();
-        }, 300);
-
-
-    }, 12000);   
-};
+    musicToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        musicToggle.click();
+      }
+    });
+  });
+</script>
