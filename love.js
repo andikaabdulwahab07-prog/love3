@@ -1,14 +1,11 @@
-// Enhanced JS for Interactivity and Romance
 document.addEventListener('DOMContentLoaded', function() {
   const block = document.querySelector('.block');
   const particlesContainer = document.getElementById('particles');
   const musicToggle = document.getElementById('music-toggle');
-  const volumeControl = document.getElementById('volume-control');
-  const volumeSlider = document.getElementById('volume-slider');
   const bgMusic = document.getElementById('bg-music');
   const loveText = document.getElementById('love-text');
 
-  // Generate Floating Hearts Particles
+  // Floating Hearts Particles
   function createParticle() {
     const particle = document.createElement('div');
     particle.className = 'particle';
@@ -19,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(createParticle, 2000);
 
-  // Heart Clicking: Add more hearts dynamically
+  // Heart Clicking: Add more hearts with better placement
   block.addEventListener('click', function(e) {
     if (e.target.tagName === 'DIV') {
       const newHeart = document.createElement('div');
@@ -30,30 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
       newHeart.style.backgroundSize = 'contain';
       newHeart.style.animation = 'pulse 2s infinite';
       newHeart.style.cursor = 'pointer';
-      newHeart.style.left = Math.random() * 480 + 'px';
-      newHeart.style.top = Math.random() * 400 + 'px';
+      // Better random placement within bounds
+      const maxX = 480 - 40;
+      const maxY = 400 - 40;
+      newHeart.style.left = Math.random() * maxX + 'px';
+      newHeart.style.top = Math.random() * maxY + 'px';
       block.appendChild(newHeart);
     }
   });
 
-  // Music Toggle with Volume Control
+  // Music Toggle
   let musicPlaying = false;
   musicToggle.addEventListener('click', function() {
     if (musicPlaying) {
       bgMusic.pause();
       musicToggle.textContent = '♪';
-      volumeControl.style.display = 'none';
     } else {
       bgMusic.play().catch(e => console.log('Audio play failed:', e));
       musicToggle.textContent = '🔊';
-      volumeControl.style.display = 'block';
     }
     musicPlaying = !musicPlaying;
-  });
-
-  // Volume Control
-  volumeSlider.addEventListener('input', function() {
-    bgMusic.volume = this.value;
   });
 
   // Typewriter Effect for Love Text
@@ -78,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Accessibility: Keyboard navigation for toggle
+  // Accessibility
   musicToggle.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
