@@ -36,17 +36,9 @@ html, body {
 }
 
 @keyframes floatParticles {
-  from {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  to {
-    transform: translateY(120vh) rotate(360deg);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
 }
 
 /* container utama */
@@ -54,190 +46,65 @@ html, body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 120px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   z-index: 10;
 }
 
-/* love text di atas */
+/* love text */
 #love-text {
   width: calc(100% - 40px);
   max-width: 900px;
   padding: 24px;
   margin-bottom: 40px;
   text-align: center;
-  font-family: 'dancing script', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(22px, 5vw, 34px);
   color: #c2185b;
   background: rgba(255,255,255,0.9);
   border-radius: 16px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-  z-index: 20;
-}
-
-/* animasi muncul */
-#love-text.show {
-  animation: fadeInText 0.6s ease forwards;
-}
-
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* karakter dan video */
-.body_left {
-  width: 300px;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 15;
-}
-
-.body_left img {
-  width: 100px;
-  margin-bottom: 12px;
-  animation: float 3s ease-in-out infinite;
-}
-
-.body_left video {
-  width: 100%;
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: arial, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fecfef, #fad0c4);
-  color: #333;
-  overflow-x: hidden;
-}
-
-/* particles */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  top: -60px;
-  width: 20px;
-  height: 20px;
-  background: url("heart.png") no-repeat center;
-  background-size: contain;
-  opacity: 0.8;
-  animation: floatParticles 12s linear infinite;
-}
-
-@keyframes floatParticles {
-  from {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  to {
-    transform: translateY(120vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* container */
-.container {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   z-index: 10;
 }
 
-/* body left */
+/* gambar & video */
 .body_left {
   width: 300px;
-  height: 300px;
-  position: absolute;
-  left: 10px;
-  bottom: 110px;
-  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 
 .body_left img {
-  width: 100px;
-  margin-bottom: 10px;
-  animation: float 3s ease-in-out infinite;
+  width: 150px;
+  border-radius: 10px;
 }
 
 .body_left video {
   width: 100%;
   max-width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* love heart */
-.container .love {
-  width: 520px;
-  height: 440px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
+/* hearts klik */
 .love .block {
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 20px;
+  margin-top: 30px;
 }
 
 .love .block div {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: url("heart.png") no-repeat center;
   background-size: contain;
   animation: pulse 2s infinite;
   cursor: pointer;
-  justify-self: center;
-  align-self: center;
 }
 
 @keyframes pulse {
@@ -245,112 +112,20 @@ html, body {
   50% { transform: scale(1.15); }
 }
 
-/* love text */
-#love-text {
-  margin-top: 40px;
-  padding: 20px;
-  max-width: 900px;
-  text-align: center;
-  font-family: 'dancing script', cursive;
-  font-size: clamp(22px, 5vw, 36px);
-  color: #c2185b;
-  background: rgba(255,255,255,0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 30;
-}
-
-#love-text.show {
-  animation: fadeInText 0.6s ease forwards,
-             blinkText 2.5s ease-in-out 1s infinite;
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes blinkText {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-/* footer */
-.footer {
-  width: 100%;
-  height: 50px;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* music toggle */
+/* music button */
 #music-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
+  border: none;
   cursor: pointer;
-  z-index: 40;
+  z-index: 50;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* mobile */
-@media (max-width: 768px) {
-  .body_left {
-    width: 200px;
-    height: 200px;
-    bottom: 80px;
   }
-
-  .body_left img {
-    width: 80px;
-  }
-
-  .body_left video {
-    max-width: 200px;
-  }
-
-  .container .love {
-    width: 360px;
-    height: 320px;
-  }
-
-  .love .block div {
-    width: 30px;
-    height: 30px;
-  }
-
-  #love-text {
-    font-size: clamp(18px, 4vw, 28px);
-    padding: 15px;
-  }
-
-  #music-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  }
-
-
-.photo-swap { position: relative; width: 150px; height: 150px; margin-bottom: 10px; }
-.photo-swap .photo { position: absolute; top: 0; left: 0; width: 150px; height: 150px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); opacity: 0; }
-.photo1 { animation: swap 6s infinite; }
-.photo2 { animation: swap 6s infinite; animation-delay: 3s; }
-@keyframes swap { 0% { opacity: 0; } 10% { opacity: 1; } 40% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
-
-
-
-
