@@ -13,32 +13,6 @@ html, body {
   overflow-y: auto;
 }
 
-/* Floating Hearts Particles */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.particle {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: url("heart.png") no-repeat center;
-  background-size: contain;
-  opacity: 0.7;
-  animation: floatParticles 10s linear infinite;
-}
-@keyframes floatParticles {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
-
 /* ---------------- container ---------------- */
 .container {
   width: 100%;
@@ -49,7 +23,6 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 10;
 }
 
 /* ---------------- body_left ---------------- */
@@ -84,7 +57,7 @@ html, body {
   50% { transform: translateY(-10px); }
 }
 
-/* ---------------- body_center (love section) ---------------- */
+/* ---------------- body_center ---------------- */
 .container .love {
   width: 520px;
   height: 440px;
@@ -100,7 +73,7 @@ html, body {
 .love .block {
   right: 0;
   position: absolute;
-  visibility: visible;
+  visibility: visible; /* Made visible for beauty */
 }
 
 .love .block div {
@@ -128,35 +101,34 @@ html, body {
 #love-text {
   position: relative;
   margin: 40px auto 0;
-  padding: 30px;
+  padding: 20px;
   max-width: 900px;
   text-align: center;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Times New Roman", Georgia, serif;
   font-size: clamp(22px, 5vw, 36px);
   color: #c2185b;
-  background: rgba(255,255,255,0.95);
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(255, 107, 107, 0.3);
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   opacity: 0;
   pointer-events: none;
   z-index: 100;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 #love-text.show {
-  animation: fadeInText 1s ease-in forwards,
-             blinkText 3s ease-in-out 1s infinite;
+  animation: fadeInText 0.5s ease-in forwards,
+             blinkText 2.5s ease-in-out 0.8s infinite;
 }
 
 @keyframes fadeInText {
-  from { opacity: 0; transform: translateY(20px) scale(0.9); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes blinkText {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0% { opacity: 1; }
+  50% { opacity: 0.65; }
+  100% { opacity: 1; }
 }
 
 /* ---------------- footer ---------------- */
@@ -189,62 +161,6 @@ html, body {
   box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
 }
 
-.footer .copyright {
-  width: 100%;
-  height: 30px;
-  position: absolute;
-  bottom: -30px;
-  text-align: center;
-}
-
-.copyright div {
-  width: 30%;
-  line-height: 30px;
-  display: inline-block;
-}
-
-.copyright div span {
-  color: dimgray;
-}
-
-/* Music Toggle Button */
-#music-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.8);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  z-index: 101;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
-#music-toggle:hover {
-  background: rgba(255,107,107,0.8);
-}
-
-/* Volume Slider */
-#volume-control {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  width: 50px;
-  z-index: 101;
-  display: none;
-}
-#volume-control input {
-  width: 100%;
-  transform: rotate(-90deg);
-  -webkit-appearance: slider-vertical;
-}
-
 /* ---------------- Media Queries for Responsiveness ---------------- */
 @media (max-width: 768px) {
   .body_left {
@@ -270,16 +186,10 @@ html, body {
   }
   #love-text {
     font-size: clamp(18px, 4vw, 28px);
-    padding: 20px;
+    padding: 15px;
     margin: 20px auto 0;
-    line-height: 1.5;
   }
   .footer {
     bottom: 20px;
   }
-  #music-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  }
+    }
