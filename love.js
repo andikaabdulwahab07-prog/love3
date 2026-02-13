@@ -1,5 +1,4 @@
 <script>
-
   document.addEventListener('DOMContentLoaded', function() {
     const block = document.querySelector('.block');
     const particlesContainer = document.getElementById('particles');
@@ -88,3 +87,4 @@
     });
   });
 </script>
+
