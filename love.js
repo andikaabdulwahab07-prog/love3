@@ -1,47 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function() {
+  const particlesContainer = document.getElementById('particles');
+  const musicToggle = document.getElementById('music-toggle');
+  const bgMusic = document.getElementById('bg-music');
 
-  const block = document.querySelector(".block");
-  const particlesContainer = document.getElementById("particles");
-  const toggle = document.getElementById("music-toggle");
-  const music = document.getElementById("bg-music");
-  const loveText = document.getElementById("love-text");
+  // Floating Hearts Particles
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.animationDelay = Math.random() * 10 + 's';
+    particlesContainer.appendChild(particle);
+    setTimeout(() => particle.remove(), 12000);
+  }
+  setInterval(createParticle, 800);
 
+  // Music toggle
   let isPlaying = false;
-
-  toggle.addEventListener("click", () => {
+  musicToggle.addEventListener("click", () => {
     if (!isPlaying) {
-      music.play();
-      toggle.textContent = "⏸";
+      bgMusic.play();
+      musicToggle.textContent = "⏸";
       isPlaying = true;
     } else {
-      music.pause();
-      toggle.textContent = "♪";
+      bgMusic.pause();
+      musicToggle.textContent = "♪";
       isPlaying = false;
     }
   });
-
-  function createParticle() {
-    const particle = document.createElement("div");
-    particle.className = "particle";
-    particle.style.left = Math.random() * 100 + "vw";
-    particlesContainer.appendChild(particle);
-    setTimeout(() => particle.remove(), 10000);
-  }
-
-  setInterval(createParticle, 2000);
-
-  const fullText = loveText.textContent;
-  loveText.textContent = "";
-  let index = 0;
-
-  function typeWriter() {
-    if (index < fullText.length) {
-      loveText.textContent += fullText.charAt(index);
-      index++;
-      setTimeout(typeWriter, 60);
-    }
-  }
-
-  setTimeout(typeWriter, 800);
-
 });
