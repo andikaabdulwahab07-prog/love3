@@ -19,7 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
       isPlaying = false;
     }
   });
+startMusic();
 
+  // Toggle button for manual control
+  musicToggle.addEventListener('click', function() {
+    if (musicPlaying) {
+      bgMusic.pause();
+      musicPlaying = false;
+      musicToggle.textContent = '♪';
+    } else {
+      startMusic();
+    }
+  });
   function createParticle() {
     const particle = document.createElement("div");
     particle.className = "particle";
@@ -45,3 +56,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(typeWriter, 800);
 
 });
+
