@@ -109,6 +109,57 @@ body {
   float: right;
   border-top: 3px solid red;
   animation: border 7s linear 12s forwards;
+}  margin: 40px auto 0;
+  padding: 0 20px;
+  max-width: 900px;
+
+  text-align: center;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(22px, 5vw, 36px);
+  color: #c2185b;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#love-text.show {
+  animation: fadeInText 0.5s ease-in forwards,
+             blinkText 2.5s ease-in-out 0.8s infinite;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blinkText {
+  0% { opacity: 1; }
+  50% { opacity: 0.65; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- footer ---------------- */
+@keyframes border {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.footer {
+  bottom: 30px;
+  position: relative;
+  z-index: 99;
+}
+
+.footer .border .border-top {
+  border-top: 3px solid black;
+  animation: border 12s linear forwards;
+}
+
+.footer .border .border-bottom {
+  float: right;
+  border-top: 3px solid red;
+  animation: border 7s linear 12s forwards;
 }
 /*---------------------- body_center -------------------------*/
 .container .love {
@@ -298,5 +349,6 @@ body {
 }
 
 /*---------------------- footer -------------------------*/
+
 
 
