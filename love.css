@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -57,13 +58,61 @@ html, body {
   50% { transform: translateY(-10px); }
 }
 
-/* ---------------- body_center ---------------- */
 .container .love {
   width: 520px;
   height: 440px;
   left: 50%;
   top: 50%;
   position: absolute;
+  
+}
+
+
+#love-text {
+  position: relative;
+  margin: 40px auto 0;
+  padding: 30px; 
+  max-width: 900px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(22px, 5vw, 36px);
+  color: #c2185b;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(255, 107, 107, 0.3); 
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  line-height: 1.6; 
+  background: linear-gradient(45deg, #ff9a9e, #fecfef); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#love-text.show {
+  animation: fadeInText 1s ease-in forwards, 
+             blinkText 3s ease-in-out 1s infinite; 
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; } 
+}
+
+
+@media (max-width: 768px) {
+  #love-text {
+    padding: 20px;
+    font-size: clamp(18px, 4vw, 28px);
+    line-height: 1.5;
+  }
+}  position: absolute;
   margin: -260px 0 0 -220px;
   display: flex;
   justify-content: center;
@@ -73,7 +122,7 @@ html, body {
 .love .block {
   right: 0;
   position: absolute;
-  visibility: visible; /* Made visible for beauty */
+  visibility: visible;
 }
 
 .love .block div {
@@ -97,7 +146,6 @@ html, body {
   50% { transform: scale(1.1); }
 }
 
-/* ---------------- love text ---------------- */
 #love-text {
   position: relative;
   margin: 40px auto 0;
@@ -131,7 +179,7 @@ html, body {
   100% { opacity: 1; }
 }
 
-/* ---------------- footer ---------------- */
+
 @keyframes border {
   from { width: 0; }
   to { width: 100%; }
@@ -161,7 +209,7 @@ html, body {
   box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
 }
 
-/* ---------------- Media Queries for Responsiveness ---------------- */
+
 @media (max-width: 768px) {
   .body_left {
     width: 200px;
@@ -213,7 +261,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ---------------- love text ---------------- */
+
 #love-text {
   position: relative;
   margin: 40px auto 0;
@@ -246,7 +294,7 @@ html, body {
   100% { opacity: 1; }
 }
 
-/* ---------------- footer ---------------- */
+
 @keyframes border {
   from { width: 0; }
   to { width: 100%; }
@@ -297,7 +345,7 @@ html, body {
   100% { opacity: 1; }
 }
 
-/* ---------------- footer ---------------- */
+
 @keyframes border {
   from { width: 0; }
   to { width: 100%; }
@@ -319,15 +367,15 @@ html, body {
   border-top: 3px solid red;
   animation: border 7s linear 12s forwards;
 }
-/*---------------------- body_center -------------------------*/
+
 .container .love {
-    width: 520px; /* 13 * 40 */
-    height: 440px; /* 11 * 40 */
+    width: 520px; 
+    height: 440px; 
     left: 50%;
     top: 50%;
     position: absolute;
     margin: -260px 0 0 -220px;
-    /*background-color: gray;*/
+    
 }
 
 .love .block {
@@ -342,9 +390,7 @@ html, body {
     height: 40px;
     position: absolute;
     background: url("heart.png") no-repeat;
-    background-size: contain;
-    /*background-color: #c40908;*/
-    /*border: 1px solid silver;*/
+    background-size: container 
     box-sizing: border-box;
 }
 
@@ -364,19 +410,18 @@ html, body {
     z-index: 100;
 }
 
-/* fade in first */
 #love-text.show {
     animation: fadeInText 0.5s ease-in forwards,
                blinkText 2.5s ease-in-out 0.8s infinite;
 }
 
-/* fade-in */
+
 @keyframes fadeInText {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
-/* gentle blink (not full disappear) */
+
 @keyframes blinkText {
     0%   { opacity: 1; }
     50%  { opacity: 0.65; }
@@ -385,11 +430,6 @@ html, body {
 
 
 
-
-
-/*---------------------- body_center -------------------------*/
-
-/*---------------------- footer -------------------------*/
 @keyframes border {
     0% {
         width: 0;
@@ -462,20 +502,18 @@ html, body {
     z-index: 99;
 }
 .footer .border .border-top {
-    /*width: 0;*/
-    /*display: inline-block;*/
+  
     border-top: 3px solid black;
     transform-origin: left center;
     -webkit-animation: border 312 linear;
     -o-animation: border 12s linear;
     animation: border 12s linear;
     animation-fill-mode : both;
-    /*border-bottom: none;*/
+    
 }
 
 .footer .border .border-bottom {
-    /*width: 0;*/
-    /*display: inline-block;*/
+    
     float: right;
     border-top: 3px solid red;
     transform-origin: right center;
@@ -483,7 +521,7 @@ html, body {
     -o-animation: border 7s linear 12s;
     animation: border 7s linear 12s;
     animation-fill-mode : both;
-    /*border-bottom: none;*/
+    
 }
 
 .footer .copyright {
@@ -492,7 +530,7 @@ html, body {
     position: absolute;
     bottom: -30px;
     text-align: center;
-    /*background-color: gray;*/
+    
 
 }
 
@@ -506,7 +544,7 @@ html, body {
     color: dimgray;
 }
 
-/*---------------------- footer -------------------------*/
+
 
 
 
