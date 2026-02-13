@@ -22,7 +22,7 @@
       overflow-y: auto;
     }
 
-    /* Floating Hearts Particles */
+    
     .particles {
       position: fixed;
       top: 0;
@@ -48,7 +48,7 @@
       100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
     }
 
-    /* ---------------- container ---------------- */
+    
     .container {
       width: 100%;
       min-height: 100vh;
@@ -61,7 +61,7 @@
       z-index: 10;
     }
 
-    /* ---------------- body_left ---------------- */
+    
     .body_left {
       width: 300px;
       height: 300px;
@@ -93,7 +93,7 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* ---------------- body_center ---------------- */
+    
     .container .love {
       width: 520px;
       height: 440px;
@@ -133,7 +133,7 @@
       50% { transform: scale(1.1); }
     }
 
-    /* ---------------- love text ---------------- */
+    
     #love-text {
       position: relative;
       margin: 40px auto 0;
@@ -171,7 +171,7 @@
       50% { opacity: 0.8; }
     }
 
-    /* ---------------- footer ---------------- */
+    
     @keyframes border {
       from { width: 0; }
       to { width: 100%; }
@@ -201,7 +201,7 @@
       box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
     }
 
-    /* Music Toggle Button */
+    
     #music-toggle {
       position: fixed;
       top: 20px;
@@ -224,7 +224,7 @@
       background: rgba(255,107,107,0.8);
     }
 
-    /* Volume Slider */
+    
     #volume-control {
       position: fixed;
       top: 80px;
@@ -239,7 +239,7 @@
       -webkit-appearance: slider-vertical;
     }
 
-    /* ---------------- Media Queries for Responsiveness ---------------- */
+    
     @media (max-width: 768px) {
       .body_left {
         width: 200px;
@@ -306,7 +306,7 @@
     </div>
 
     <div id="love-text" class="show">
-      You know that I love you always. Sorry if I always annoy you. You are very kind and mature. Maybe sometimes I am still childish. Sorry. I hope if you want, we can meet as soon as possible. HAPPY VALENTINE'S DAY. I LOVE UU
+  My dearest love, you know that I love you more than words can ever express. Every moment without you feels incomplete, and my heart aches with the depth of my feelings for you. You're the light in my life, the one who makes everything brighter and more beautiful. I cherish your kindness, your maturity, and the way you always understand me, even when I'm being a bit childish. I'm sorry if I annoy you sometimes – I just can't help but show my affection. But most of all, I miss you terribly and dream of the day we can finally be together. Please, let's meet as soon as possible – I can't wait to hold you close and create more memories. I love you endlessly. HAPPY VALENTINE'S DAY 
     </div>
   </div>
 
@@ -318,7 +318,7 @@
   </div>
 
   <script>
-    // Enhanced JS for Interactivity and Romance
+  
     document.addEventListener('DOMContentLoaded', function() {
       const block = document.querySelector('.block');
       const particlesContainer = document.getElementById('particles');
@@ -328,7 +328,7 @@
       const bgMusic = document.getElementById('bg-music');
       const loveText = document.getElementById('love-text');
 
-      // Generate Floating Hearts Particles
+    
       function createParticle() {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -339,7 +339,7 @@
       }
       setInterval(createParticle, 2000);
 
-      // Heart Clicking: Add more hearts dynamically
+      
       block.addEventListener('click', function(e) {
         if (e.target.tagName === 'DIV') {
           const newHeart = document.createElement('div');
@@ -356,7 +356,7 @@
         }
       });
 
-      // Music Toggle with Volume Control
+      
       let musicPlaying = false;
       musicToggle.addEventListener('click', function() {
         if (musicPlaying) {
@@ -369,14 +369,13 @@
           volumeControl.style.display = 'block';
         }
         musicPlaying = !musicPlaying;
-      });
-
-      // Volume Control
+      })
+      
       volumeSlider.addEventListener('input', function() {
         bgMusic.volume = this.value;
       });
 
-      // Typewriter Effect for Love Text
+      
       const fullText = loveText.textContent;
       loveText.textContent = '';
       let index = 0;
@@ -389,7 +388,7 @@
       }
       setTimeout(typeWriter, 1000);
 
-      // Click to Reveal Extra Message
+      
       loveText.addEventListener('click', function() {
         if (!loveText.classList.contains('expanded')) {
           loveText.innerHTML += '<br><br><em>And every beat of my heart whispers your name...</em>';
@@ -398,7 +397,7 @@
         }
       });
 
-      // Accessibility: Keyboard navigation for toggle
+      
       musicToggle.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -408,208 +407,4 @@
     });
   </script>
 </body>
-</html>     
-  <style>
-      top: 80px;
-      right: 20px;
-      width: 50px;
-      z-index: 101;
-      display: none; 
-    }
-    #volume-control input {
-      width: 100%;
-      transform: rotate(-90deg);
-      -webkit-appearance: slider-vertical;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="particles" id="particles"></div>
-
-  
-  <button id="music-toggle" title="Toggle Music">♪</button>
-  <div id="volume-control">
-    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" title="Volume">
-  </div>
-  <audio id="bg-music" loop preload="none">
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-  </audio>
-
-  
-  <div class="container">
-    <div class="body_left">
-      <img src="biubiubiu.gif" alt="Floating love animation" draggable="false">
-      <video src="VID-20260213-WA0013.mp4" autoplay loop muted playsinline alt="Personal love video"></video>
-    </div>
-
-    <div class="love">
-      <div class="block">
-        <div></div><div></div><div></div><div></div>
-      </div>
-    </div>
-
-    <div id="love-text" class="show">
-  My dearest love, you know that I love you more than words can ever express. Every moment without you feels incomplete, and my heart aches with the depth of my feelings for you. You're the light in my life, the one who makes everything brighter and more beautiful. I cherish your kindness, your maturity, and the way you always understand me, even when I'm being a bit childish. I'm sorry if I annoy you sometimes I just can't help but show my affection. But most of all, I miss you terribly and dream of the day we can finally be together. Please, let's meet as soon as possible I can't wait to hold you close and create more memories. I love you endlessly. HAPPY VALENTINE'S DAY
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="border">
-      <div class="border-top"></div>
-      <div class="border-bottom"></div>
-    </div>
-  </div>
-
-  <script>
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const block = document.querySelector('.block');
-      const particlesContainer = document.getElementById('particles');
-      const musicToggle = document.getElementById('music-toggle');
-      const volumeControl = document.getElementById('volume-control');
-      const volumeSlider = document.getElementById('volume-slider');
-      const bgMusic = document.getElementById('bg-music');
-
-      
-      function createParticle() {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particlesContainer.appendChild(particle);
-        setTimeout(() => particle.remove(), 10000);
-      }
-      setInterval(createParticle, 2000);
-
-
-      block.addEventListener('click', function(e) {
-        if (e.target.tagName === 'DIV') {
-          const newHeart = document.createElement('div');
-          newHeart.style.width = '40px';
-          newHeart.style.height = '40px';
-          newHeart.style.position = 'absolute';
-          newHeart.style.background = 'url("heart.png") no-repeat';
-          newHeart.style.backgroundSize = 'contain';
-          newHeart.style.animation = 'pulse 2s infinite';
-          newHeart.style.cursor = 'pointer';
-          newHeart.style.left = Math.random() * 480 + 'px';
-          newHeart.style.top = Math.random() * 400 + 'px';
-          block.appendChild(newHeart);
-        }
-      });
-
-      
-      let musicPlaying = false;
-      musicToggle.addEventListener('click', function() {
-        if (musicPlaying) {
-          bgMusic.pause();
-          musicToggle.textContent = '♪';
-          volumeControl.style.display = 'none';
-        } else {
-          bgMusic.play().catch(e => console.log('Audio play failed:', e)); // Handle autoplay restrictions
-          musicToggle.textContent = '🔊';
-          volumeControl.style.display = 'block';
-        }
-        musicPlaying = !musicPlaying;
-      });
-
-      
-      volumeSlider.addEventListener('input', function() {
-        bgMusic.volume = this.value;
-      });
-
-
-      musicToggle.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          musicToggle.click();
-        }
-      });
-    });
-  </script>
-</body>
-</html>     
-<style>
-      text-align: center;
-      font-size: 1.2em;
-      max-width: 600px;
-      padding: 20px;
-      background: rgba(255,255,255,0.8);
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out 1s forwards;
-    }
-    .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 50px;
-      background: linear-gradient(to right, #ff9a9e, #fecfef);
-    }
-    .border-top, .border-bottom {
-      height: 5px;
-      background: #ff6b6b;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    @media (max-width: 768px) {
-      .body_left video { max-width: 300px; }
-      #love-text { font-size: 1em; padding: 15px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="body_left">
-      <img src="biubiubiu.gif" alt="Love GIF" draggable="false">
-      <video src="VID-20260213-WA0013.mp4" autoplay loop muted playsinline></video>
-    </div>
-    <div class="love">
-      <div class="block">
-        <div></div><div></div><div></div><div></div>
-      </div>
-    </div>
-    <div id="love-text" class="show">
-      You know that I love you always. Sorry if I always annoy you. You are very kind and mature. Maybe sometimes I am still childish. Sorry. I hope if you want, we can meet as soon as possible. HAPPY VALENTINE'S DAY. I LOVE UU
-    </div>
-  </div>
-  <div class="footer">
-    <div class="border">
-      <div class="border-top"></div>
-      <div class="border-bottom"></div>
-    </div>
-  </div>
-  <script/>
-    document.addEventListener('DOMContentLoaded', function() {
-      const block = document.querySelector('.block');
-      block.addEventListener('click', function() {
-        const newHeart = document.createElement('div');
-        newHeart.style.width = '20px';
-        newHeart.style.height = '20px';
-        newHeart.style.background = '#ff6b6b';
-        newHeart.style.borderRadius = '50%';
-        newHeart.style.margin = '5px';
-        newHeart.style.animation = 'pulse 2s infinite';
-        block.appendChild(newHeart);
-      });
-    });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
+  </html>
