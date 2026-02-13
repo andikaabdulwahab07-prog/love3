@@ -7,7 +7,52 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    
+     /* Add this to your existing <style> block in the head */
+#love-text {
+  position: relative;
+  margin: 40px auto 0;
+  padding: 30px; /* Increased padding for longer text */
+  max-width: 900px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(22px, 5vw, 36px);
+  color: #c2185b;
+  background: rgba(255,255,255,0.95); /* Slightly more opaque for readability */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(255, 107, 107, 0.3); /* Added glow */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  line-height: 1.6; /* Better spacing for longer text */
+  background: linear-gradient(45deg, #ff9a9e, #fecfef); /* Subtle gradient background */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Gradient text effect */
+  background-clip: text;
+}
+
+#love-text.show {
+  animation: fadeInText 1s ease-in forwards, /* Slower fade for drama */
+             blinkText 3s ease-in-out 1s infinite; /* Gentler blink */
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; } /* Softer blink */
+}
+
+/* Media query adjustment for mobile */
+@media (max-width: 768px) {
+  #love-text {
+    padding: 20px;
+    font-size: clamp(18px, 4vw, 28px);
+    line-height: 1.5;
+  }
+    }
     #music-toggle {
       position: fixed;
       top: 20px;
@@ -154,5 +199,6 @@
   </script>
 </body>
 </html>
+
 
 
