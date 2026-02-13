@@ -136,7 +136,7 @@ html, body {
 
 .love .block div {
   width: 36px;
-  height: 36px;
+  height: 10px;
   background: url("heart.png") no-repeat center;
   background-size: contain;
   animation: pulse 2s infinite;
@@ -192,4 +192,5 @@ html, body {
     max-width: 220px;
   }
 }
+
 
