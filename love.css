@@ -11,7 +11,7 @@ html, body {width:100%; height:100%; font-family:arial,sans-serif; background:li
 
 /* gambar & video */
 .body_left {width:300px; display:flex; flex-direction:column; align-items:center; gap:10px;}
-.body_left img {width:100%; max-width:300px; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,0.2); animation:float 3s ease-in-out infinite;}
+.body_left img {width:100%; max-width:250px; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,0.2); animation:float 3s ease-in-out infinite;}
 .body_left video {width:150px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); animation:float 3s ease-in-out infinite;}
 
 @keyframes float {0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
@@ -26,3 +26,4 @@ html, body {width:100%; height:100%; font-family:arial,sans-serif; background:li
 
 /* music button */
 #music-toggle {position:fixed; top:20px; right:20px; width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.9); border:none; cursor:pointer; z-index:50; font-size:20px; display:flex; align-items:center; justify-content:center;}
+
