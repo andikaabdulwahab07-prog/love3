@@ -2,41 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>my love</title>
+  <title>My Love</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="love.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef, #fad0c4);
+      color: #333;
+      overflow-x: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .body_left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .body_left img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .body_left video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .love {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .block {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .block div {
+      width: 20px;
+      height: 20px;
+      background: #ff6b6b;
+      margin: 5px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    #love-text {
+      text-align: center;
+      font-size: 1.2em;
+      max-width: 600px;
+      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 1s forwards;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(to right, #ff9a9e, #fecfef);
+    }
+    .border-top, .border-bottom {
+      height: 5px;
+      background: #ff6b6b;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .body_left video { max-width: 300px; }
+      #love-text { font-size: 1em; padding: 15px; }
+    }
+  </style>
 </head>
-
 <body>
-
   <div class="container">
-
     <div class="body_left">
-      <img src="biubiubiu.gif" alt="" draggable="false">
+      <img src="biubiubiu.gif" alt="Love GIF" draggable="false">
       <video src="VID-20260213-WA0013.mp4" autoplay loop muted playsinline></video>
     </div>
-
     <div class="love">
       <div class="block">
         <div></div><div></div><div></div><div></div>
       </div>
     </div>
-
     <div id="love-text" class="show">
-      you know that i love you always. sorry if i always annoy you. you are very kind and mature. maybe sometimes i am still childish. sorry. i hope if you want, we can meet as soon as possible. HAPPY VALENTINE'S DAY I LOVE UU
+      You know that I love you always. Sorry if I always annoy you. You are very kind and mature. Maybe sometimes I am still childish. Sorry. I hope if you want, we can meet as soon as possible. HAPPY VALENTINE'S DAY. I LOVE UU
     </div>
-
   </div>
-
   <div class="footer">
     <div class="border">
       <div class="border-top"></div>
       <div class="border-bottom"></div>
     </div>
   </div>
-
-  <script src="love.js"></script>
+  <script>
+    // Simple JS to enhance interactivity (e.g., click to show more hearts)
+    document.addEventListener('DOMContentLoaded', function() {
+      const block = document.querySelector('.block');
+      block.addEventListener('click', function() {
+        const newHeart = document.createElement('div');
+        newHeart.style.width = '20px';
+        newHeart.style.height = '20px';
+        newHeart.style.background = '#ff6b6b';
+        newHeart.style.borderRadius = '50%';
+        newHeart.style.margin = '5px';
+        newHeart.style.animation = 'pulse 2s infinite';
+        block.appendChild(newHeart);
+      });
+    });
+  </script>
 </body>
 </html>
