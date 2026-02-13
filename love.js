@@ -37,16 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Music Toggle
-  let musicPlaying = false;
-  musicToggle.addEventListener('click', function() {
-    if (musicPlaying) {
-      bgMusic.pause();
-      musicToggle.textContent = '♪';
+  document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bg-music");
+  const toggle = document.getElementById("music-toggle");
+
+  let isPlaying = false;
+
+  toggle.addEventListener("click", () => {
+    if (!isPlaying) {
+      music.play(Valentine - Laufey.mp3);
+      toggle.textContent = "⏸";
+      isPlaying = true;
     } else {
-      bgMusic.play().catch(e => console.log('Audio play failed:', e));
-      musicToggle.textContent = '🔊';
+      music.pause(Valentine - Laufey.mp3);
+      toggle.textContent = "♪";
+      isPlaying = false;
     }
-    musicPlaying = !musicPlaying;
   });
 
   // Typewriter Effect for Love Text
@@ -79,4 +85,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
